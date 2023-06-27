@@ -1,0 +1,26 @@
+/**
+ * Tailwind CSS imports
+ * View the full documentation at https://tailwindcss.com
+ */
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ 
+ @layer base {
+   @font-face {
+     font-family: "Coolvetica";
+     font-display: swap;
+     src: url("/fonts/coolvetica_rg.otf") format("opentype");
+   }
+ 
+   @font-face {
+     font-family: "Inter";
+     font-display: swap;
+     src: url("/fonts/Inter-Medium.ttf");
+   }
+ 
+   html,
+   body {
+     @apply bg-[#F3F3F3] font-primary text-lg text-gray-900;
+   }
+ }
