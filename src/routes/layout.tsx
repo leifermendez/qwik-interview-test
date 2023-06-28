@@ -6,7 +6,13 @@ import {
 } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import Header from "~/components/header/header";
-import { GlobalCTX, GlobalQwikCityContext } from "~/contexts/global.ctx";
+import Toast from "~/components/toast/toast";
+import {
+  GlobalCTX,
+  GlobalQwikCityContext,
+  UIGlobalToastContext,
+  UIGlobalToastCTX,
+} from "~/contexts/global.ctx";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -26,9 +32,16 @@ export default component$(() => {
     filter: [],
     page: 1,
   });
+  const uiGlobalToast = useStore<UIGlobalToastCTX>({
+    message: "",
+    visible: false,
+    time: 0,
+  });
   useContextProvider(GlobalQwikCityContext, globalStore);
+  useContextProvider(UIGlobalToastContext, uiGlobalToast);
   return (
     <>
+      <Toast />
       <Header />
       <main>
         <Slot />

@@ -1,5 +1,5 @@
 import { $, component$, useContext } from "@builder.io/qwik";
-import { type DocumentHead } from "@builder.io/qwik-city";
+import { useNavigate, type DocumentHead } from "@builder.io/qwik-city";
 import Section from "~/components/section/section";
 
 import Button from "~/components/button/button";
@@ -9,9 +9,10 @@ import { GlobalQwikCityContext } from "~/contexts/global.ctx";
 
 export default component$(() => {
   const globalCtx = useContext(GlobalQwikCityContext);
-
+  const navigation = useNavigate();
   const handlerNextPage = $(() => (globalCtx.page += 1));
   const handlerPrevPage = $(() => (globalCtx.page -= 1));
+  const handlerNew = $(() => navigation("/detail"));
 
   return (
     <>
@@ -25,6 +26,9 @@ export default component$(() => {
             sunt harum! Totam soluta, id dignissimos, doloremque quasi magnam
             odit accusantium, et natus voluptatibus nihil fugiat.
           </p>
+          <div>
+            <Button highlight onClick$={handlerNew} label="Create new" />
+          </div>
         </div>
       </Section>
       <Section>
