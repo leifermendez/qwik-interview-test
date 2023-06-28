@@ -11,6 +11,18 @@ https://github.com/leifermendez/qwik-interview-test/assets/15802366/c427726f-b5c
 
 Is so qwik! 🚀
 
+### Features
+
+- [x] Grapql
+- [x] Pagination 
+- [x] Search 
+- [x] CRUD of Posts 
+- [x] contextApi
+- [x] useStore, useSignal
+- [x] routes, useLocation, useNavigation
+- [x] Style: Tailwind
+
+
 ## Notice
 
 About of the Graphql for Qwik currently don't exist an official library to connect so I took it's [qwikql](https://github.com/TahaSh/qwikql) as base but I modified
