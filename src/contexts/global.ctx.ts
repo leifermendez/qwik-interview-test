@@ -1,15 +1,15 @@
 import { createContextId } from "@builder.io/qwik";
 
-export interface CoffeesInterface {
-  url: string;
-  title: string;
-  category: string;
+export interface PostInterface {
+  id:string
+  title:string
+  body:string
 }
 
 export interface GlobalCTX {
   src: string;
-  filter: CoffeesInterface[];
-  items: CoffeesInterface[];
+  filter: PostInterface[];
+  items: PostInterface[];
   page: number;
 }
 export interface UIGlobalToastCTX {

@@ -5,7 +5,7 @@ export default component$(({ posts }: { posts: any[] }) => {
   return (
     <div class="grid grid-cols-4 gap-4">
       {posts.map((item: any) => (
-        <Card {...item} />
+        <Card key={item.id} {...item} />
       ))}
     </div>
   );

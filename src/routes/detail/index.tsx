@@ -3,7 +3,7 @@ import { useNavigate } from "@builder.io/qwik-city";
 import Section from "~/components/section/section";
 import Button from "~/components/button/button";
 import { FormStateType } from "~/types/form";
-import { useCreateDetail } from "~/hooks/use-create-detail";
+import { useCreate } from "~/hooks/use-create";
 
 export default component$(() => {
   const navigation = useNavigate()
@@ -13,7 +13,7 @@ export default component$(() => {
     body: "",
   });
 
-  const { createData$, createDataPayload$ } = useCreateDetail(formState);
+  const { createData$, createDataPayload$ } = useCreate(formState);
   
   const returnBack = $(() => navigation('/'))
 
