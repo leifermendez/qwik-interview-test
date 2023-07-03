@@ -10,34 +10,33 @@ import {
 } from "@builder.io/qwik-city";
 import Section from "~/components/section/section";
 import Button from "~/components/button/button";
-import { useGetDetail } from "~/hooks/use-get-detail";
-import { useUpdateDetail } from "~/hooks/use-update-detail";
-import { FormStateType } from "~/types/form";
-import { useDeleteDetail } from "~/hooks/use-delete-detail";
+import { useGet } from "~/hooks/use-get";
+import { useUpdate } from "~/hooks/use-update";
+import { PostInterface } from "~/contexts/global.ctx";
+import { useDel } from "~/hooks/use-delete";
 
 export default component$(() => {
   const id = useLocation().params.id;
-  const formState = useStore<FormStateType>({
+  const formState = useStore<PostInterface>({
     id: "",
     title: "",
     body: "",
   });
 
-  const getData$ = useGetDetail(id, formState);
-
-  const { updateData$, updateDataPayload$ } = useUpdateDetail(id, formState);
-  const { deleteData$, deleteDataPayload$ } = useDeleteDetail(id, formState);
+  const getData$ = useGet(id, formState);
+  const { updateData$, updateDataPayload$ } = useUpdate(id, formState);
+  const { deleteData$, deleteDataPayload$ } = useDel(id);
 
   return (
     <>
       <Section>
         <Resource
           value={getData$}
-          onResolved={(data) => (
+          onResolved={() => (
             <>
               <div class="p-4">
                 <h1 class="text-5xl">
-                  #({data.id}) {data.title}
+                  #({formState.id}) {formState.title}
                 </h1>
                 <p class="font-secondary py-4">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -74,11 +73,12 @@ export default component$(() => {
                     disable={updateDataPayload$.result?.loading}
                     label={updateDataPayload$.loading ? "Updating..." : "Update"}
                   />
-                  <Button
+                     <Button
                     onClick$={deleteData$}
-                    disable={deleteDataPayload$.result.loading}
+                    disable={deleteDataPayload$.result?.loading}
                     label={deleteDataPayload$.loading ? "Deleting..." : "Delete"}
                   />
+                 
                 </div>
               </form>
             </>

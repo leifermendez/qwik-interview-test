@@ -1,6 +1,6 @@
 import { gql } from "graphql-request";
 
-export const LIST_POSTS = gql`
+export const ALL_POST = gql`
   query ($options: PageQueryOptions) {
     posts(options: $options) {
       data {

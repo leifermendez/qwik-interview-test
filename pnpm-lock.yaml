@@ -37,6 +37,9 @@ devDependencies:
   graphql-request:
     specifier: ^6.1.0
     version: 6.1.0(graphql@16.7.1)
+  idb:
+    specifier: ^7.1.1
+    version: 7.1.1
   netlify-cli:
     specifier: ^15.0.0
     version: 15.0.0(@types/node@20.3.2)
@@ -8121,6 +8124,10 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: 8.4.24
+    dev: true
+
+  /idb@7.1.1:
+    resolution: {integrity: sha512-gchesWBzyvGHRO9W8tzUWFDycow5gwjvFKfyV9FF32Y7F50yZMp7mP+T2mJIWFx49zicqyC4uefHM17o6xKIVQ==}
     dev: true
 
   /ieee754@1.2.1:
